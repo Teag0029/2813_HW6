@@ -1,7 +1,8 @@
 all: 
 	@echo "Python does not need to compile"
 
-java: combination.java
+java: permutation.java
+	javac permutation.java && java permutation ../../../test_data/Permutations/input-1.csv test0_output.csv
 
 python: permutation.py
 	python3 permutation.py ../../../test_data/Permutations/input-1.csv test0_output.csv
@@ -9,10 +10,10 @@ python: permutation.py
 c: combinations.c
 	gcc -w -g -Wall -o combinations combinations.c -lm -std=c99
 
-cpp: Permutations.exe
-	g++  Main.cpp -o Permutations
+cpp: Main.cpp
+	g++ Main.cpp -o permutation.exe
 
-run: python
+run: cpp
 
-clean: 
+clean:
 	rm *.o *.exe

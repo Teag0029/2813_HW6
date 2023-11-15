@@ -79,7 +79,7 @@ vector<int*> all_permutations(int* lst, int sz) {
 	}
 }
 
-int main() {
+int main(int argc, char* argv[]) {
 	// TODO: take ..//..//test_data//Permutations//input-1.csv and store into lst
 
 	int sz = 5;

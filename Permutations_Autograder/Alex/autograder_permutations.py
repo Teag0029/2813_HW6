@@ -26,7 +26,7 @@ class Autograder_Permutations(Base_Autograder):
     """
     Initializes variables
     """
-    def __init__(self, in_student_name="Alex", in_this_dir=".", in_test_files=["..", "test_data"]):
+    def __init__(self, in_student_name="Alex", in_this_dir=".", in_test_files=["test_data"]):
         super().__init__()
 
         # Student information
@@ -37,7 +37,7 @@ class Autograder_Permutations(Base_Autograder):
         # Directory information
         self.this_dir =         in_this_dir
         self.student_files =    os.path.join(self.student_name , "Solution_Files")
-        self.test_files =       ""
+        self.test_files =       self.this_dir
 
         for i in range(len(in_test_files)):
             self.test_files = os.path.join(self.test_files, in_test_files[i])
@@ -95,6 +95,7 @@ class Autograder_Permutations(Base_Autograder):
     def autograde(self):
         this_dir =  os.path.abspath(self.this_dir)
         test_dir =  os.path.abspath(self.test_files)
+        
 
         # Print the test dir and project dir
         if self.DEBUG:

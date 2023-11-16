@@ -57,14 +57,14 @@ public:
 
 string arrayToString(const int* arr, size_t size) {
 	stringstream ss;
-	ss << "(";
+	ss << "\"(";
 	for (size_t i = 0; i < size; ++i) {
 		ss << "'" <<  arr[i] << "'";
 		if (i != size - 1) {
-			ss << ",";
+			ss << ", ";
 		}
 	}
-	ss << ")";
+	ss << ")\"";
 	return ss.str();
 }
 
@@ -75,10 +75,14 @@ void writeToFile(const vector<int*>& data, size_t arraySize, const string& fileN
 		cerr << "Error: Unable to open file " << fileName << endl;
 		return;
 	}
-
+	string toFile = "";
 	for (const auto& ptr : data) {
-		file << arrayToString(ptr, arraySize) << " , ";
+		toFile += arrayToString(ptr, arraySize) + ",";
 	}
+
+	toFile = toFile.substr(0, toFile.size()-1) + '\n';
+
+	file << toFile;
 
 	file.close();
 }
@@ -184,8 +188,8 @@ int main(int argc, char* argv[]) {
 		cout << argv[2] << '\n';
 		*/
 
-		filein = argv[1];
-		fileout = argv[2];
+		//filein = argv[1];
+		//fileout = argv[2];
 	}
 
 	// TODO: take ..//..//test_data//Permutations//input-1.csv and store into lst
@@ -197,14 +201,14 @@ int main(int argc, char* argv[]) {
 	int* lst = new int[sz];
 
 	//cout << "filev size: " << sz << '\n';
-	/*more debugging
+	///*more debugging
 	for (int i = 0; i < sz-1; i++) {
 		lst[i] = filev.at(i);
-		cout << lst[i] << ", ";
+		//cout << lst[i] << ", ";
 	}
 	lst[sz - 1] = filev.at(sz - 1);
-	cout << lst[sz - 1] << '\n';
-	*/
+	//cout << lst[sz - 1] << '\n';
+	//*/
 
 	//this is where file parse should spit out int[] = int* lst;
 	//make sure to also know what the size is, it's used in all_perm(func)
@@ -247,6 +251,6 @@ int main(int argc, char* argv[]) {
 	//this ends the list of all perms of lst
 
 
-	cout << "Perms ran successfully";
+	cout << "Perms ran successfully\n";
 	return 0;
 }

@@ -1,0 +1,10 @@
+when in directory Alex/Solution_Files, Need ../../test-data/Permutations/input-1.csv as input list.
+
+To run, run these two lines in command window (in makefile directory)
+
+make all
+make run
+
+a.exe should be created by make all
+
+and a.exe should run with make run, outputting to Alex/Solution_Files/test0_output.csv

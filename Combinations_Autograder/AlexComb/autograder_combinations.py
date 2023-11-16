@@ -4,8 +4,8 @@ import pandas as pd
 import sys
 
 # Tell the script where to find the base autograder
-sys.path.append("..")
-sys.path.append(os.path.join("..", ".."))
+sys.path.append(os.path.join(sys.path[0],".."))
+sys.path.append(os.path.join(sys.path[0],os.path.join("..", "..")))
 from autograder_base import Base_Autograder
 
 # Colors

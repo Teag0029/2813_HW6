@@ -1,0 +1,8 @@
+when in directory Alex/Solution_Files, Need ../../test-data/Permutations/input-1.csv as input list.
+
+Return to Permutations_Autograder folder (the one downloaded and unzipped in files)
+
+open this as your working directory in a terminal.
+run the command "python Alex/autograder_permutations.py"
+
+I assume that if a different set is tested (replacing contents on input-1.csv with new integers), then that command will still read the right contents (replacing output-1csv as well), and be right

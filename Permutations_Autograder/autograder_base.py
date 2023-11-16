@@ -59,6 +59,7 @@ class Base_Autograder(ABC):
         # try to make and run the code
         try:
             # alert what directory doesn't have a makefile (dont copy it)
+            print("student dir: " + student_dir)
             if not os.path.isfile(os.path.join(student_dir, "Makefile")):
                 print(f"{R}\nERROR: Missing Makefile when trying to test in {student_dir}!{W}")
                 print(f"{R}       Skipping testing for {commands[0][0]}...{W}")
